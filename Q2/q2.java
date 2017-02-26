@@ -43,11 +43,12 @@ public class q2 {
 		}
 		return 0;
 	}
-
+	//legend has it, the author's still single
+	
 	//driver-function
 	public void giftify(Boys []b, Girls []g, Happyfy happinessarray[]) throws IOException {
 		int i, j=0;
-		DataOutputStream dos = new DataOutputStream(new FileOutputStream("log1.txt"));
+		DataOutputStream dos = new DataOutputStream(new FileOutputStream("log1.txt")); //gifting log
 		for (i=0; i<b.length; i++) {
 			if (b[i].committed == true) {
 				double sumval = 0, sumcost = 0;
@@ -90,7 +91,7 @@ public class q2 {
 		int nb = 7, ng = 5, k = 0, z = 0, num_happ_coup = 3; //nb = no.of boys, ng = no.of girls, num_happ_coup = no.of happiest couples to be found
 		Boys b[] = new Boys[nb];
 		Girls g[] = new Girls[ng];
-		Happyfy happinessarray[] = new Happyfy[ng];		
+		Happyfy happinessarray[] = new Happyfy[ng]; //this array stores couple-wise happiness		
 		q2 FilesUtil = new q2();		
 		List<String> alb = FilesUtil.readTextFileByLines("Boys_data.txt"); //read Boys_data
 		Object arrb[] = alb.toArray(); //convert list to array
@@ -115,6 +116,7 @@ public class q2 {
 		}
 		FilesUtil.couplify(b, g); //need this for real
 		FilesUtil.giftify(b, g, happinessarray);
+		//bubble sort, for finding the happiest couples (in decreasing order of happiness)
 		for (int i=0; i<ng-1; i++) {
 			for (int j=0; j<ng-1-i; j++) {
 				if (happinessarray[j].happiness < happinessarray[j+1].happiness) {
@@ -131,7 +133,7 @@ public class q2 {
 			}
 		}
 	
-                DataOutputStream dos = new DataOutputStream(new FileOutputStream("log2.txt"));
+                DataOutputStream dos = new DataOutputStream(new FileOutputStream("log2.txt")); //happy couple logs
 		dos.writeBytes("Happiest "+num_happ_coup+" couples are\n");
 		for (int i=0; i<num_happ_coup; i++) {
 			dos.writeBytes(happinessarray[i].boyfriend+" and "+happinessarray[i].girlfriend+"\n");
