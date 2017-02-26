@@ -1,9 +1,9 @@
 Rekha,1,1,1,most rich
 
-Hema,3,3,3,most ll
+Hema,3,3,3,most rich
 
-Pooja,5,5,5,most bla
+Pooja,5,5,5,most intelligent
 
-Aarti,6,6,6,most blabla
+Aarti,6,6,6,most attractive
 
-Praya,8,8,8,most gappu
+Praya,8,8,8,most intelligent
