@@ -5,18 +5,15 @@ import java.time.*;
 import java.time.temporal.*;
 
 class q1 {
-
 	//line-wise reading of text file
 	public List<String> readTextFileByLines(String fileName) throws IOException {
 		List<String> lines = Files.readAllLines(Paths.get(fileName));
 		return lines;
 	}
-
 	//write to txt file
 	public void writeToTextFile(String fileName, String content) throws IOException {
 		Files.write(Paths.get(fileName), content.getBytes(), StandardOpenOption.CREATE);
 	}
-
 	//driver-function
 	public void couplify(Boys []b, Girls []g) throws IOException{
 		int j=0;
@@ -32,11 +29,9 @@ class q1 {
 			} else if (g[i].maintainencebudget > b[j].maintainencebudget && g[i].committed == false && b[j].committed == false) {
 				j++;
 				i--;
-			}
-			
+			}			
 		}
 	}
-
 	//start of main
 	public static void main(String args[]) throws IOException {
 		int nb = 7, ng = 5, k = 0, z = 0; //nb = no.of boys, ng = no.of girls
@@ -53,11 +48,7 @@ class q1 {
 			
 			String strarr[] = str.split(",");
 			b[k++] = new Boys(strarr); //constructor call
-		}
-		
-		/*for (int i=0; i<nb; i++) {
-			b[i].display();
-		}*/		
+		}	
 		
 		List<String> alg = FilesUtil.readTextFileByLines("Girls_data.txt"); //refer to above comments
 		Object arrg[] = alg.toArray();
@@ -71,7 +62,5 @@ class q1 {
 			g[z++] = new Girls(strarr);
 		}
 		FilesUtil.couplify(b, g); //need this for real
-
 	}
 }
-
