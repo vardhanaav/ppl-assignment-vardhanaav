@@ -17,7 +17,7 @@ public class q2 extends q1{
 	}
 
 	//pseudo-driver-function
-	public void couplify(Boys []b, Girls []g) throws IOException{
+	/*public void couplify(Boys []b, Girls []g) throws IOException{
 		int j=0;
 		DataOutputStream dos = new DataOutputStream(new FileOutputStream("log.txt")); //created in the current directory, no path specs reqd
 		for (int i=0; i<g.length; i++) {
@@ -34,7 +34,7 @@ public class q2 extends q1{
 			}
 
 		}
-	}
+	}*/
 
 	//search for a girlfriend continues
 	int search(String girlfriend, Girls []g) {
