@@ -4,7 +4,7 @@ import java.nio.file.*;
 import java.time.*;
 import java.time.temporal.*;
 
-public class q2 {
+public class q2 extends q1{
 	//line-wise reading of text file
 	public List<String> readTextFileByLines(String fileName) throws IOException {
 		List<String> lines = Files.readAllLines(Paths.get(fileName));
