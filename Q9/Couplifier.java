@@ -49,6 +49,55 @@ public class Couplifier extends Custom{
 		}
 	}
 
+	/**
+	 * driver-function
+	 * @param b the array of object Boys
+	 * @param g the array of object Girls
+	 */
+	public void giftify(Boys []b, Girls []g) throws IOException {
+		int i, j=0;
+		//Boys tempb = new Boys(0);
+		//tempb = randomboy(b);
+		//Girls tempg = new Girls(0);
+		//tempg = randomgirl(g);
+		DataOutputStream dos = new DataOutputStream(new FileOutputStream("log1.txt"));
+		for (i=0; i<b.length; i++) {
+			if (b[i].committed == true) {
+				double sumval = 0, sumcost = 0;
+				while (sumcost <= b[i].maintainencebudget) {
+					List<String> gift = readTextFileByLines("Gifts.txt");
+					Object arrgift[] = gift.toArray();
+					for (int k=0; k<arrgift.length; k++) {
+						String str = arrgift[k].toString();
+						if (str.length() == 0) {        //ignore new-line                       
+							continue;
+						}
+						String strarr[] = str.split(",");
+						sumval = sumval + Double.parseDouble(strarr[2]);
+						sumcost = sumcost + Double.parseDouble(strarr[3]);
+						dos.writeBytes(b[i].name+" gifts "+strarr[4]+" to "+b[i].girlfriend+" on "+LocalDate.now()+" "+LocalTime.now()+"\n");
+					}
+				}
+				/*int idx = search(b[i].girlfriend, g);
+				if (b[i].type.equals("miser"))
+					b[i].happiness = b[i].maintainencebudget-sumcost;
+				else if (b[i].type.equals("generous"))
+					b[i].happiness = g[idx].happiness; //search for girlfriend via search function
+				else //if(b[i].type.equals("geek")
+					b[i].happiness = g[idx].intellilevel;
+
+				if (g[idx].type.equals("normal"))
+					g[idx].happiness = b[i].maintainencebudget-sumcost;
+				else if (g[idx].type.equals("choosy"))
+					g[idx].happiness = Math.log(sumcost);
+				else //desperate
+					g[idx].happiness = Math.exp(sumcost);
+
+				happinessarray[j++] = new Happyfy(b[i].name, g[idx].name, b[i].happiness + g[idx].happiness);*/
+			}
+		}
+	}
+
 	//start of main
 	/**
 	* Constructor that does all the work
@@ -86,6 +135,7 @@ public class Couplifier extends Custom{
 			g[z++] = new Girls(strarr);
 		}
 		couplify(b, g); //need this for real
+		giftify(b, g);
 		display(b, g);
 
 	}
