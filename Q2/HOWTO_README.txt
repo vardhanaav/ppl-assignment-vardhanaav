@@ -4,7 +4,7 @@ cd ppl-assignment-vardhanaav
 cd Q2
 javac *.java
 java q2
-cat log.txt
+cat log.txt log1.txt log2.txt
 javadoc *.java
 
 (Ubuntu Gnome 16.04LTS)
