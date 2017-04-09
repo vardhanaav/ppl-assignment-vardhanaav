@@ -1,8 +1,10 @@
 run the commands:
 
-javac q3.java
+cd Q3
+javac *.java
 java q3
 cat log.txt log1.txt log2.txt
+javadoc *.java
 
 on the terminal.
 
