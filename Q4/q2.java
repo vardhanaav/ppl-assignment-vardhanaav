@@ -1,3 +1,7 @@
+/**
+ * @author Ashwin Aishvarya Vardhan
+ */
+
 import java.io.*;
 import java.util.*;
 import java.nio.file.*;
@@ -6,15 +10,20 @@ import java.time.temporal.*;
 
 public class q2 extends q1{ //inheritance
 	//line-wise reading of text file
+	/**
+	 * line-wise reading of text file
+	 * @param fileName the file to be read
+	 * @return the list containing the contents of file line-by-line
+	 */
 	public List<String> readTextFileByLines(String fileName) throws IOException {
 		List<String> lines = Files.readAllLines(Paths.get(fileName));
 		return lines;
 	}
 
 	//write to txt file
-	public void writeToTextFile(String fileName, String content) throws IOException {
+	/*public void writeToTextFile(String fileName, String content) throws IOException {
 		Files.write(Paths.get(fileName), content.getBytes(), StandardOpenOption.CREATE);
-	}
+	}*/
 
 	//pseudo-driver-function
 	/*public void couplify(Boys []b, Girls []g) throws IOException{
@@ -36,7 +45,11 @@ public class q2 extends q1{ //inheritance
 		}
 	}*/
 
-
+	/** 
+	* function to copy source file to destination file
+	* @param s1 source file name
+	* @param s2 destination file name
+	*/
 	public void ftof(String s1, String s2)throws IOException {
 		FileOutputStream fos = new FileOutputStream(s2);// Destination
 		DataOutputStream dos = new DataOutputStream(fos);//where to write
@@ -51,7 +64,12 @@ public class q2 extends q1{ //inheritance
 		}
 	}
 
-	//search for a girlfriend continues
+	/**
+	* search for a girlfriend continues
+	* @param girlfriend name of the girlfriend
+	* @param g the array of object Girls
+	* @return the index of the corresponding gf
+	*/
 	int search(String girlfriend, Girls []g) {
 		for (int i=0; i<g.length; i++) {
 			if (g[i].name.equals(girlfriend)) return i;
@@ -60,14 +78,26 @@ public class q2 extends q1{ //inheritance
 	}
 
 
-	int searchbf(String boyfriend, Boys []g) {
-		for (int i=0; i<g.length; i++) {
-			if (g[i].name.equals(boyfriend)) return i;
+	/**
+	* function to search for corresponding boyfriend  
+	* @param boyfriend name of the boyfriend
+	* @param b the array of object Boys
+	* @return the index of the corresponding bf
+	*/
+	int searchbf(String boyfriend, Boys []b) {
+		for (int i=0; i<b.length; i++) {
+			if (b[i].name.equals(boyfriend)) return i;
 		}
 		return 0;
 	}
 
 	//driver-function
+	/**
+	 * driver-function
+	 * @param b the array of object Boys
+	 * @param g the array of object Girls
+	 * @param happinessarray an array of Object Happyfy: stores the happiness of couples
+	 */
 	public void giftify(Boys []b, Girls []g, Happyfy happinessarray[]) throws IOException {
 		int i, j=0;
 		DataOutputStream dos = new DataOutputStream(new FileOutputStream("log1.txt"));
@@ -109,7 +139,13 @@ public class q2 extends q1{ //inheritance
 	}
 
 
-//create a copy function
+//create a copy function : done
+	/** 
+	* function for breaking the engagement before marriage
+	* @param b Array of objects of Boys
+	* @param g Array of objects of Girls
+	* @param h Array of objects of Happyfy
+	*/
 public void breakify(Boys []b, Girls []g, Happyfy h[]) throws IOException{
 	int len, k=2; //k breakups
 	len = h.length; //h->happinessarray
@@ -139,8 +175,29 @@ public void breakify(Boys []b, Girls []g, Happyfy h[]) throws IOException{
 }
 
 	//start of main
+	/**
+	* constructor doing all the job, my bro constructor
+	*/
 	q2() throws IOException{
-		int nb = 7, ng = 5, k = 0, z = 0, num_happ_coup = 3; //nb = no.of boys, ng = no.of girls, num_happ_coup = no.of happiest couples to be found
+		/**
+		 * number of boys*/ 
+		int nb;
+		/**
+		 * number of girls*/
+		int ng;
+		/**
+		 * index variable for boys array*/
+		int k;
+		/**
+		 * index variable for girls array*/ 
+		int z;
+		/**
+		 * number of happiest couples*/
+		int num_happ_coup;
+		/**
+		* choice 0 for first couplify, 1 for new couplify
+		*/
+		nb = 7; ng = 5; k = 0; z = 0; num_happ_coup = 3; //nb = no.of boys, ng = no.of girls, num_happ_coup = no.of happiest couples to be found
 		Boys b[] = new Boys[nb];
 		Girls g[] = new Girls[ng];
 		Happyfy happinessarray[] = new Happyfy[ng];		

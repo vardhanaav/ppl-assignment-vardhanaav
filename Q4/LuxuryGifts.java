@@ -3,7 +3,11 @@ public class LuxuryGifts {
 	double value, price;
 	String giftName;
 	
-	LuxuryGifts(String arr[]) {
+	/**
+	* constructor
+	* @param arr contains the line to be read for gifts
+	*/
+	public LuxuryGifts(String arr[]) {
 		rating = Integer.parseInt(arr[0]);
 		difficulty = Integer.parseInt(arr[1]);
 		value = 2*(Double.parseDouble(arr[2]));

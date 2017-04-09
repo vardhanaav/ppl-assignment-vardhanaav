@@ -5,12 +5,18 @@ public class Boys {
 	int attractiveness;
 	double maintainencebudget;
 	int intellilevel;
+	/**
+	* minimum attractiveness requirement rest are self explanatory*/
 	int minattractreq;
 	boolean committed;
 	String type; //miser|generous|geek
 	double happiness;
 
-	Boys(String str[]) {	//constructor: to be read from file
+	/**
+	* constructor
+	* @param str contains the line to be read
+	*/
+	public Boys(String str[]) {	//constructor: to be read from file
 		//int n = num+1;
 		name = str[0];
 		attractiveness = Integer.parseInt(str[1]);
@@ -22,9 +28,9 @@ public class Boys {
 		type = str[5];
 	}
 
-	public void display() {
+/*	public void display() {
 		//System.out.println("Display Boys");
 		System.out.println(name+"\n"+attractiveness+"\n"+maintainencebudget+"\n"+intellilevel+"\n"+minattractreq+"\n"+committed+"\n"+girlfriend+"\n");
-	}
+	}*/
 }
 

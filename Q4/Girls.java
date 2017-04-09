@@ -6,10 +6,17 @@ public class Girls {
 	String criterion; // usage TBD
 	boolean committed;
 	String boyfriend;
+	/**
+	* choosy or normal or desparate
+	*/
 	String type; //choosy|normal|desparate
 	double happiness;
 
-	Girls(String str[]) {	//constructor: to be read from file
+	/**
+	* constructor
+	* @param str contains the line to be read
+	*/
+	public Girls(String str[]) {	//constructor: to be read from file
 		//int n = num+1;
 		name = str[0];
 		attractiveness = Integer.parseInt(str[1]);
@@ -21,9 +28,9 @@ public class Girls {
 		type = str[5];
 	}
 
-	public void display() {
+/*	public void display() {
 		//System.out.println("Girls");
 		System.out.println(name+"\n"+attractiveness+"\n"+maintainencebudget+"\n"+intellilevel+"\n"+criterion+"\n"+committed+"\n"+boyfriend+"\n");
 
-	}
+	}*/
 }
