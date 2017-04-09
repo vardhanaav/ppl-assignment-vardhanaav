@@ -4,7 +4,7 @@ import java.nio.file.*;
 import java.time.*;
 import java.time.temporal.*;
 
-public class Couplifier {
+public class Couplifier extends Custom{
 
 	//line-wise reading of text file
 	/**
@@ -16,6 +16,9 @@ public class Couplifier {
 		return lines;
 	}
 
+	public Boys []b;
+	public Girls []g;
+	//Happyfy []happinessarray;
 	//write to txt file
 	public void writeToTextFile(String fileName, String content) throws IOException {
 		Files.write(Paths.get(fileName), content.getBytes(), StandardOpenOption.CREATE);
@@ -52,8 +55,8 @@ public class Couplifier {
 	*/
 	Couplifier() throws IOException {
 		int nb = 7, ng = 5, k = 0, z = 0; //nb = no.of boys, ng = no.of girls
-		Boys b[] = new Boys[nb];
-		Girls g[] = new Girls[ng];		
+		b = new Boys[nb];
+		g = new Girls[ng];		
 		//Couplifier FilesUtil = new q1();		
 		List<String> alb = readTextFileByLines("Boys_data.txt"); //read Boys_data
 		Object arrb[] = alb.toArray(); //convert list to array
@@ -83,6 +86,7 @@ public class Couplifier {
 			g[z++] = new Girls(strarr);
 		}
 		couplify(b, g); //need this for real
+		display(b, g);
 
 	}
 }
