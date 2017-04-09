@@ -1,5 +1,6 @@
 run the commands:
 
+cd ppl-assignment-vardhanaav
 cd Q3
 javac *.java
 java q3
