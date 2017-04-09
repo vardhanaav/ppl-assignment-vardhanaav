@@ -2,7 +2,11 @@ public class EssentialGifts {
 	double price, value;
 	String giftName;
 	
-	EssentialGifts(String arr[]) {
+	/**
+	* constructor
+	* @param arr contains the line to be read gifts
+	*/
+	public EssentialGifts(String arr[]) {
 		//rating = arr[0];
 		//difficulty = arr[1];
 		value = Double.parseDouble(arr[2]);

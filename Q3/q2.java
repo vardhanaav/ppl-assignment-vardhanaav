@@ -6,15 +6,20 @@ import java.time.temporal.*;
 
 public class q2 extends q1{
 	//line-wise reading of text file
+	/**
+	 * line-wise reading of text file
+	 * @param fileName the file to be read
+	 * @return the list containing the contents of file line-by-line
+	 */
 	public List<String> readTextFileByLines(String fileName) throws IOException {
 		List<String> lines = Files.readAllLines(Paths.get(fileName));
 		return lines;
 	}
 
 	//write to txt file
-	public void writeToTextFile(String fileName, String content) throws IOException {
+	/*public void writeToTextFile(String fileName, String content) throws IOException {
 		Files.write(Paths.get(fileName), content.getBytes(), StandardOpenOption.CREATE);
-	}
+	}*/
 
 	//pseudo-driver-function
 	/*public void couplify(Boys []b, Girls []g) throws IOException{
@@ -37,6 +42,12 @@ public class q2 extends q1{
 	}*/
 
 	//search for a girlfriend continues
+	/**
+	* search for a girlfriend continues
+	* @param girlfriend name of the girlfriend
+	* @param g the array of object Girls
+	* @return the index of the corresponding gf
+	*/
 	int search(String girlfriend, Girls []g) {
 		for (int i=0; i<g.length; i++) {
 			if (g[i].name.equals(girlfriend)) return i;
@@ -45,6 +56,12 @@ public class q2 extends q1{
 	}
 
 	//driver-function
+	/**
+	 * driver-function
+	 * @param b the array of object Boys
+	 * @param g the array of object Girls
+	 * @param happinessarray an array of Object Happyfy: stores the happiness of couples
+	 */
 	public void giftify(Boys []b, Girls []g, Happyfy happinessarray[]) throws IOException {
 		int i, j=0;
 		DataOutputStream dos = new DataOutputStream(new FileOutputStream("log1.txt"));
@@ -86,8 +103,29 @@ public class q2 extends q1{
 	}
 
 	//start of main
+	/**
+	* constructor doing all the job
+	*/
 	q2() throws IOException{
-		int nb = 7, ng = 5, k = 0, z = 0, num_happ_coup = 3; //nb = no.of boys, ng = no.of girls, num_happ_coup = no.of happiest couples to be found
+		/**
+		 * number of boys*/ 
+		int nb;
+		/**
+		 * number of girls*/
+		int ng;
+		/**
+		 * index variable for boys array*/
+		int k;
+		/**
+		 * index variable for girls array*/ 
+		int z;
+		/**
+		 * number of happiest couples*/
+		int num_happ_coup;
+		/**
+		* choice 0 for first couplify, 1 for new couplify
+		*/
+		nb = 7; ng = 5; k = 0; z = 0; num_happ_coup = 3; //nb = no.of boys, ng = no.of girls, num_happ_coup = no.of happiest couples to be found
 		Boys b[] = new Boys[nb];
 		Girls g[] = new Girls[ng];
 		Happyfy happinessarray[] = new Happyfy[ng];		

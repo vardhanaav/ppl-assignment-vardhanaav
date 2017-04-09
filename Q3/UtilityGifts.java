@@ -3,7 +3,11 @@ public class UtilityGifts {
 	double value, price;
 	String giftName;
 	
-	UtilityGifts(String arr[]) {
+	/**
+	* constructor
+	* @param arr contains the line to be read gifts
+	*/
+	public UtilityGifts(String arr[]) {
 		uvalue = Integer.parseInt(arr[0]);
 		uclass = Integer.parseInt(arr[1]);
 		value = Double.parseDouble(arr[2]);

@@ -7,17 +7,25 @@ import java.time.temporal.*;
 public class q1 {
 
 	//line-wise reading of text file
+	/** *line-wise reading of text file
+	* @param fileName the file to be read
+	* @return the contents of file line-wise*/
 	public List<String> readTextFileByLines(String fileName) throws IOException {
 		List<String> lines = Files.readAllLines(Paths.get(fileName));
 		return lines;
 	}
 
 	//write to txt file
-	public void writeToTextFile(String fileName, String content) throws IOException {
+	/*public void writeToTextFile(String fileName, String content) throws IOException {
 		Files.write(Paths.get(fileName), content.getBytes(), StandardOpenOption.CREATE);
-	}
+	}*/
 
 	//driver-function
+	/**
+	* driver-function
+	* @param b the array of object Boys
+	* @param g the array of object Girls
+	*/
 	public void couplify(Boys []b, Girls []g) throws IOException{
 		int j=0;
 		DataOutputStream dos = new DataOutputStream(new FileOutputStream("log.txt")); //created in the current directory, no path specs reqd
@@ -38,6 +46,9 @@ public class q1 {
 	}
 
 	//start of main
+	/**
+	* @param args
+	*/
 	public static void main(String args[]) throws IOException {
 		int nb = 7, ng = 5, k = 0, z = 0; //nb = no.of boys, ng = no.of girls
 		Boys b[] = new Boys[nb];
